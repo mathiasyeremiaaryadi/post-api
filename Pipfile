@@ -13,6 +13,7 @@ mysqlclient = "*"
 kanpai = "*"
 flask-cors = "*"
 psycopg2 = "*"
+gunicorn = "*"
 
 [dev-packages]
 

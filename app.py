@@ -22,8 +22,10 @@ article_validator = Kanpai.Object({
 })
 
 # Konfigurasi database
-DB_URL = 'postgresql://postgres:root@localhost/posts'
-app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
+# DB_URL_LOCAL = 'postgresql://postgres:root@localhost/posts'
+DB_URL_HOST = 'postgresql://aofnvpkqxcicds:c6e1375748168827262aeeefbf74bf05a84c4dd40a1baca6b6bd3c89b9c1d668@ec2-34-197-84-74.compute-1.amazonaws.com:5432/d9j8ub1b4v45ck'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL_HOST
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 marshmallow = Marshmallow(app)
@@ -35,7 +37,7 @@ migrate = Migrate(app, db)
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200))
-    content = db.Column(db.Text)
+    content = db.Column(db.Text())
     category = db.Column(db.String(100))
     created_date = db.Column(db.DateTime(timezone=True), default=datetime.utcnow)
     updated_date = db.Column(db.DateTime(timezone=True), default=datetime.utcnow, onupdate=datetime.utcnow)
