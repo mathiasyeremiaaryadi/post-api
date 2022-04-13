@@ -22,7 +22,7 @@ article_validator = Kanpai.Object({
 })
 
 # Konfigurasi database
-DB_URL = 'mysql://root@localhost/posts'
+DB_URL = 'postgresql://postgres:root@localhost/posts'
 app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)

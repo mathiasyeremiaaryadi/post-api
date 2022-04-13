@@ -12,6 +12,7 @@ flask-migrate = "*"
 mysqlclient = "*"
 kanpai = "*"
 flask-cors = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
