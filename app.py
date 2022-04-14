@@ -1,6 +1,4 @@
-from decimal import DefaultContext
-import json
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 from flask_marshmallow import Marshmallow
@@ -22,10 +20,9 @@ article_validator = Kanpai.Object({
 })
 
 # Konfigurasi database
-# DB_URL_LOCAL = 'postgresql://postgres:root@localhost/posts'
-DB_URL_HOST = 'postgresql://aofnvpkqxcicds:c6e1375748168827262aeeefbf74bf05a84c4dd40a1baca6b6bd3c89b9c1d668@ec2-34-197-84-74.compute-1.amazonaws.com:5432/d9j8ub1b4v45ck'
+DB_URL_LOCAL = 'postgresql://postgres:root@localhost/posts'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL_HOST
+app.config['SQLALCHEMY_DATABASE_URI'] = DB_URL_LOCAL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 marshmallow = Marshmallow(app)
@@ -272,4 +269,4 @@ def delete_article(id):
 
 # Inisiasi server BE
 if __name__ == 'main':
-    app.run()
+    app.run(debug=True)
