@@ -1,3 +1,9 @@
+Tools
+=================
+1. Python
+2. Flask
+3. PostgreSQL
+
 Cara Menjalankan Aplikasi
 =============================
 1. Pastikan Anda memiliki library python ```pipenv``` sebagai python dependency/package manager (seperti npm, composer)
